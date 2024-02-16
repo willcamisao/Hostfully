@@ -16,6 +16,9 @@ describe('Computer Database Tests', () => {
     cy.get('input[type="submit"]').click(); // Click on save
     cy.url().should('include', '/computers'); // check if it is redirecting to homepage
     cy.get('.alert-message').should('contain', 'Done'); // Verify success msg
+
+    // timeout before next test
+    cy.wait(2000);
   });
 
   it('Select and Delete a computer', () => {
@@ -35,6 +38,9 @@ describe('Computer Database Tests', () => {
     // Verify the message and redirect page
     cy.url().should('include', '/computers'); 
     cy.contains('.alert-message', 'has been deleted').should('exist');
+
+     // timeout before next test
+     cy.wait(2000);
   });
 
   it('Validate it does not create a register with empty fields', () => {
@@ -44,6 +50,9 @@ describe('Computer Database Tests', () => {
     
     cy.get('input[type="submit"]').click(); // Click on save
     cy.get('.error > .input').should('contain', ' Failed to refine type'); // Verify error msg
+
+     // timeout before next test
+     cy.wait(2000);
   });
  
   it('Validate it does not allow invalid date parameters', () => {
@@ -58,6 +67,9 @@ describe('Computer Database Tests', () => {
 
     cy.get('input[type="submit"]').click(); // Click on save
     cy.get('.error > .input > .help-inline').should('contain', 'Failed to decode date : java.time.format.DateTimeParseException'); // Verify error msg
+  
+   // timeout before next test
+   cy.wait(2000);
   });
 
   it('Validate Cancel button returns to homepage', () => {
@@ -66,6 +78,9 @@ describe('Computer Database Tests', () => {
 
     cy.get('a.btn').click(); 
     cy.url().should('include', '/computers'); // check if it is redirecting to homepage
+
+     // timeout before next test
+     cy.wait(2000);
   });
 
   it('Validate pagination button Next', () => {
@@ -73,6 +88,9 @@ describe('Computer Database Tests', () => {
     
     // Verifying the new list page
     cy.get('.current > a').should('contain', 'Displaying 11 to 20');
+
+     // timeout before next test
+     cy.wait(2000);
   });
 
   it('Validate pagination button Back', () => {
@@ -83,7 +101,8 @@ describe('Computer Database Tests', () => {
     cy.get('.prev > a').click(); 
     cy.get('.current > a').should('contain', 'Displaying 1 to 10');
  
-   
+    // timeout before next test
+    cy.wait(2000);
   });
   it('Validate filter by name with existent data', () => {
     const nameComputer = 'Amiga 600'; // Using an existent value on DV as new register dont seem to be added
@@ -97,7 +116,8 @@ describe('Computer Database Tests', () => {
     // Check the result in the list table
     cy.get('table tbody').contains('td', nameComputer).should('exist');
  
-   
+    // timeout before next test
+    cy.wait(2000);
   });
 
   it('Validate filter by name with empty searchbox', () => {
