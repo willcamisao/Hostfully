@@ -25,5 +25,5 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 Cypress.Commands.add('visitHomePage', () => {
-    cy.visit('https://computer-database.gatling.io/computers'); // Substitua a URL pela sua URL real
+    cy.visit('/'); // calling a baseurl from config file
   });
