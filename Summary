@@ -1,0 +1,11 @@
+Some issues found during the tests 
+
+- The error messages returned in the exception scenarios are not friendly messages, the frontend should display a treated friendly message (it displays code error message)
+and these message should be previously defined by the team in order to implement the autoation tests. 
+
+- Some locators in the front end are not good practices, in order to have a more efficient automation we should have a patter for the
+objects in the front end, for example: the pagination display the only pssible locator to use is '.current > a' which is not recommended. 
+
+- The filter only works for exact values, which reduces the level of the tests as need to use a value that can be deleted from the database at some point, so we should be able to use random filters by carachteres 
+
+- 
